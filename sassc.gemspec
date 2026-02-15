@@ -6,7 +6,7 @@ require "sassc/version"
 
 Gem::Specification.new do |spec|
 
-  spec.name          = "sassc"
+  spec.name          = "precompiled-sassc"
   spec.version       = SassC::VERSION
   spec.authors       = ["Ryan Boland"]
   spec.email         = ["ryan@tanookilabs.com"]

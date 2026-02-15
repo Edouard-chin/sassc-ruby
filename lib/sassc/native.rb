@@ -8,9 +8,10 @@ module SassC
 
     dl_ext = RbConfig::MAKEFILE_CONFIG['DLEXT']
     begin
-      ffi_lib File.expand_path("libsass.#{dl_ext}", __dir__)
+      ruby_version = /(\d+\.\d+)/.match(RUBY_VERSION)
+      ffi_lib File.expand_path("#{ruby_version}/libsass.#{dl_ext}", __dir__)
     rescue LoadError # Some non-rvm environments don't copy a shared object over to lib/sassc
-      ffi_lib File.expand_path("libsass.#{dl_ext}", "#{__dir__}/../../ext")
+      ffi_lib File.expand_path("#{ruby_version}/libsass.#{dl_ext}", "#{__dir__}/../../ext")
     end
 
     require_relative "native/sass_value"
